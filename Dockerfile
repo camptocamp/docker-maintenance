@@ -11,7 +11,7 @@ COPY index.html /app/index.html
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 
 RUN mkdir /data && \
-    chmod +w /data
+    chmod go+w /data
 WORKDIR /data
 
 ENV PORT=8080 \
