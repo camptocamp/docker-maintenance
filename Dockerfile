@@ -4,8 +4,8 @@ RUN --mount=type=cache,target=/var/lib/apt/lists \
     --mount=type=cache,target=/var/cache,sharing=locked \
     --mount=type=cache,target=/root/.cache \
   apt-get update && \
-  apt-get upgrade && \
-  apt-get install --yes --no-install-recommends netcat
+  apt-get upgrade --yes && \
+  apt-get install --yes --no-install-recommends netcat-openbsd
 
 COPY index.html /app/index.html
 COPY entrypoint.sh /usr/bin/entrypoint.sh

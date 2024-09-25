@@ -12,28 +12,25 @@ on:
 env:
   HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
-  main:
-    name: Continuous integration
+  pre-commit:
+    name: Pre-commit
     runs-on: ubuntu-22.04
-    timeout-minutes: 40
+    timeout-minutes: 10
     if: "!startsWith(github.event.head_commit.message, '[skip ci] ')"
 
     steps:
-      # Versions
-      - run: docker system prune --all --force
-      - run: docker --version
       - uses: actions/checkout@v4
-
-      - uses: camptocamp/initialise-gopass-summon-action@v2
-        with:
-          ci-gpg-private-key: ${{secrets.CI_GPG_PRIVATE_KEY}}
-          github-gopass-ci-token: ${{secrets.GOPASS_CI_GITHUB_TOKEN}}
-          patterns: docker
-        if: env.HAS_SECRETS == 'HAS_SECRETS'
 
       - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
       - run: python3 -m pip install --user --requirement=ci/requirements.txt
+
+      - name: Print environment information
+        run: c2cciutils-env
 
       - uses: actions/cache@v4
         with:
@@ -49,11 +46,27 @@ jobs:
           path: /tmp/pre-commit.patch
           retention-days: 1
         if: failure()
-      - name: Print environment information
-        run: c2cciutils-env
+
+  main:
+    name: Continuous integration
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    needs: pre-commit
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - run: echo "${HOME}/.local/bin" >> ${GITHUB_PATH}
+      - run: python3 -m pip install --user --requirement=ci/requirements.txt
 
       - run: make build
 
+      - uses: camptocamp/initialise-gopass-summon-action@v2
+        with:
+          ci-gpg-private-key: ${{secrets.CI_GPG_PRIVATE_KEY}}
+          github-gopass-ci-token: ${{secrets.GOPASS_CI_GITHUB_TOKEN}}
+          patterns: docker
+        if: env.HAS_SECRETS == 'HAS_SECRETS'
       - name: Publish
         run: c2cciutils-publish
         if: env.HAS_SECRETS == 'HAS_SECRETS'
