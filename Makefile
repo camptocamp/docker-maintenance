@@ -5,4 +5,4 @@ build:
 	# Required and not nesseerly exists
 	touch CI.asc
 
-	docker build $(GIT_HEAD_ARG) .
+	docker build $(GIT_HEAD_ARG) --tag=camptocamp/maintenance .
