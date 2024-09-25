@@ -10,6 +10,10 @@ RUN --mount=type=cache,target=/var/lib/apt/lists \
 COPY index.html /app/index.html
 COPY entrypoint.sh /usr/bin/entrypoint.sh
 
+RUN mkdir /data && \
+    chmod +w /data
+WORKDIR /data
+
 ENV PORT=80 \
     RESPONSE_CODE=200 \
     TITLE="Maintenance" \
