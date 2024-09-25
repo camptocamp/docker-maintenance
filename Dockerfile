@@ -14,10 +14,10 @@ RUN mkdir /data && \
     chmod +w /data
 WORKDIR /data
 
-ENV PORT=80 \
-    RESPONSE_CODE=503 Service Unavailable \
-    TITLE="Maintenance" \
-    HEADLINE="Maintenance" \
+ENV PORT=8080 \
+    RESPONSE_CODE="503 Service Unavailable" \
+    TITLE=Maintenance \
+    HEADLINE=Maintenance \
     MESSAGE="This application is in maintenance mode"
 
 CMD ["/usr/bin/entrypoint.sh"]
