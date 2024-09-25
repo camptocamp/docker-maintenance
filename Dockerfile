@@ -15,7 +15,7 @@ RUN mkdir /data && \
 WORKDIR /data
 
 ENV PORT=80 \
-    RESPONSE_CODE=200 \
+    RESPONSE_CODE=503 Service Unavailable \
     TITLE="Maintenance" \
     HEADLINE="Maintenance" \
     MESSAGE="This application is in maintenance mode"
