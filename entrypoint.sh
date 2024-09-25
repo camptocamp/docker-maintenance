@@ -8,5 +8,5 @@ sed --in-place "s/{{message}}/${MESSAGE}/g" index.html
 
 while true
 do
-    { printf "HTTP/1.1 %s\r\n" "${RESPONSE_CODE}"; cat index.html; } | nc -lvp "${PORT}"
+    { printf -- "-e HTTP/1.1 %s\n\n" "${RESPONSE_CODE}"; cat index.html; } | nc -nlp "${PORT}" -w 0
 done
