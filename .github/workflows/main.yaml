@@ -9,12 +9,12 @@ on:
       - '*'
   pull_request:
 
-env:
-  HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
-
 permissions:
   contents: read
   packages: write
+
+env:
+  HAS_SECRETS: ${{ secrets.HAS_SECRETS }}
 
 jobs:
   pre-commit:
