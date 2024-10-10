@@ -56,7 +56,7 @@ camptocamp/maintenance:latest:
   ubuntu_24_04/libpam-runtime: 1.5.3-5ubuntu5.1
   ubuntu_24_04/libpam0g: 1.5.3-5ubuntu5.1
   ubuntu_24_04/libpcre2-8-0: 10.42-4ubuntu2
-  ubuntu_24_04/libproc2-0: 2:4.0.4-4ubuntu3.1
+  ubuntu_24_04/libproc2-0: 2:4.0.4-4ubuntu3.2
   ubuntu_24_04/libseccomp2: 2.5.5-1ubuntu3.1
   ubuntu_24_04/libselinux1: 3.5-2ubuntu2
   ubuntu_24_04/libsemanage-common: 3.5-1build5
@@ -83,7 +83,7 @@ camptocamp/maintenance:latest:
   ubuntu_24_04/netcat-openbsd: 1.226-1ubuntu2
   ubuntu_24_04/passwd: 1:4.13+dfsg1-4ubuntu3.2
   ubuntu_24_04/perl-base: 5.38.2-3.2build2
-  ubuntu_24_04/procps: 2:4.0.4-4ubuntu3.1
+  ubuntu_24_04/procps: 2:4.0.4-4ubuntu3.2
   ubuntu_24_04/sed: 4.9-2build1
   ubuntu_24_04/sensible-utils: 0.0.22
   ubuntu_24_04/sysvinit-utils: 3.08-6ubuntu3
