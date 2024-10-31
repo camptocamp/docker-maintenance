@@ -3,6 +3,7 @@
 { \
     echo "HTTP/1.1 ${RESPONSE_CODE}"; \
     echo 'Content-Type: text/html; charset=UTF-8'; \
+    echo "Cache-Control: max-age=${CACHE_CONTROL_MAX_AGE}"; \
     echo 'Connection: close'; \
     echo; \
     cat /app/index.html; \
