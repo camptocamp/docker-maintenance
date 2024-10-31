@@ -16,6 +16,7 @@ WORKDIR /data
 
 ENV PORT=8080 \
     RESPONSE_CODE="503 Service Unavailable" \
+    CACHE_CONTROL_MAX_AGE="60" \
     TITLE=Maintenance \
     HEADLINE=Maintenance \
     MESSAGE="This application is in maintenance mode"
