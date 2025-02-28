@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:25.04
 
 RUN --mount=type=cache,target=/var/lib/apt/lists \
     --mount=type=cache,target=/var/cache,sharing=locked \
