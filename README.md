@@ -5,7 +5,7 @@ Simple page to show the maintenance mode of a services.
 ## Usage
 
 ```bash
-docker run camptcoampt/maintenance
+docker run ghcr.io/camptocamp/maintenance:master
 ```
 
 ## Configuration
