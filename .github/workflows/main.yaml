@@ -31,7 +31,7 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.14'
-      - run: python3 -m pip install '--only-binary=:all:' --no-binary=markdown-table --requirement=ci/requirements.txt
+      - run: python3 -m pip install '--only-binary=:all:' --requirement=ci/requirements.txt
 
       - name: Print environment information
         run: c2cciutils-env
@@ -70,7 +70,7 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: '3.14'
-      - run: python3 -m pip install '--only-binary=:all:' --no-binary=markdown-table --requirement=ci/requirements.txt
+      - run: python3 -m pip install '--only-binary=:all:' --requirement=ci/requirements.txt
 
       - run: make build
 
